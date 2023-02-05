@@ -39,7 +39,8 @@ class _TableScreenState extends State<TableScreen> {
               border: TableBorder.all(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.black,
-                  width: 1),
+                  width: 1,
+              ),
               columns: const [
                 DataColumn(label: Text("")),
                 DataColumn(label: Text("شنبه")),
