@@ -5,10 +5,7 @@ import 'package:karshenasi_project/my_theme.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
-      statusBarColor: Colors.blue
-    )
-  );
+      const SystemUiOverlayStyle(statusBarColor: Colors.blue));
   runApp(const MyApp());
 }
 
