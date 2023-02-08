@@ -1,5 +1,5 @@
 class TableProvider {
-  int selectedCourse = 0;
+  String? selectedCourse;
   List<String> courseList = [
     "درس شماره 1",
     "درس شماره 2",

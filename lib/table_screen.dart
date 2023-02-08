@@ -61,8 +61,7 @@ class _TableScreenState extends State<TableScreen> {
                         const DataCell(Center(child: Text("8_10"))),
                         DataCell(Text(provider.rows[0][0]), onTap: () {
                           setState(() {
-                            provider.rows[0][0] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[0][0] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -71,8 +70,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[0][1]), onTap: () {
                           setState(() {
-                            provider.rows[0][1] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[0][1] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -81,8 +79,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[0][2]), onTap: () {
                           setState(() {
-                            provider.rows[0][2] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[0][2] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -91,8 +88,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[0][3]), onTap: () {
                           setState(() {
-                            provider.rows[0][3] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[0][3] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -101,8 +97,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[0][4]), onTap: () {
                           setState(() {
-                            provider.rows[0][4] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[0][4] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -116,8 +111,7 @@ class _TableScreenState extends State<TableScreen> {
                         const DataCell(Center(child: Text("10_12"))),
                         DataCell(Text(provider.rows[1][0]), onTap: () {
                           setState(() {
-                            provider.rows[1][0] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[1][0] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -126,8 +120,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[1][1]), onTap: () {
                           setState(() {
-                            provider.rows[1][1] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[1][1] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -136,8 +129,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[1][2]), onTap: () {
                           setState(() {
-                            provider.rows[1][2] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[1][2] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -146,8 +138,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[1][3]), onTap: () {
                           setState(() {
-                            provider.rows[1][3] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[1][3] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -156,8 +147,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[1][4]), onTap: () {
                           setState(() {
-                            provider.rows[1][4] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[1][4] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -171,8 +161,7 @@ class _TableScreenState extends State<TableScreen> {
                         const DataCell(Center(child: Text("13:30_15:30"))),
                         DataCell(Text(provider.rows[2][0]), onTap: () {
                           setState(() {
-                            provider.rows[2][0] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[2][0] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -181,8 +170,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[2][1]), onTap: () {
                           setState(() {
-                            provider.rows[2][1] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[2][1] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -191,8 +179,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[2][2]), onTap: () {
                           setState(() {
-                            provider.rows[2][2] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[2][2] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -201,8 +188,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[2][3]), onTap: () {
                           setState(() {
-                            provider.rows[2][3] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[2][3] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -211,8 +197,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[2][4]), onTap: () {
                           setState(() {
-                            provider.rows[2][4] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[2][4] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -226,8 +211,7 @@ class _TableScreenState extends State<TableScreen> {
                         const DataCell(Center(child: Text("15:30_17:30"))),
                         DataCell(Text(provider.rows[3][0]), onTap: () {
                           setState(() {
-                            provider.rows[3][0] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[3][0] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -236,8 +220,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[3][1]), onTap: () {
                           setState(() {
-                            provider.rows[3][1] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[3][1] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -246,8 +229,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[3][2]), onTap: () {
                           setState(() {
-                            provider.rows[3][2] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[3][2] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -256,8 +238,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[3][3]), onTap: () {
                           setState(() {
-                            provider.rows[3][3] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[3][3] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -266,8 +247,7 @@ class _TableScreenState extends State<TableScreen> {
                         }),
                         DataCell(Text(provider.rows[3][4]), onTap: () {
                           setState(() {
-                            provider.rows[3][4] =
-                                provider.courseList[provider.selectedCourse];
+                            provider.rows[3][4] = provider.selectedCourse!;
                           });
                         }, onLongPress: () {
                           setState(() {
@@ -279,50 +259,37 @@ class _TableScreenState extends State<TableScreen> {
                   ],
                 ),
                 const SizedBox(width: 20),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(height: 20),
-                      Text(
-                        "لیست دروس",
-                        style: textTheme.bodyLarge
-                            ?.copyWith(fontWeight: FontWeight.bold),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: DropdownButton(
+                        borderRadius: BorderRadius.circular(10),
+                        icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                        hint: Text(
+                          "لیست دروس",
+                          style: textTheme.bodyMedium,
+                        ),
+                        value: provider.selectedCourse,
+                        items: provider.courseList.map((String item) {
+                          return DropdownMenuItem(
+                            value: item,
+                            child: Text(
+                              item,
+                              style: textTheme.bodyMedium,
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            provider.selectedCourse = newValue!;
+                          });
+                        },
                       ),
-                      const SizedBox(height: 20),
-                      SizedBox(
-                        width: 150,
-                        child: ListView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: provider.courseList.length,
-                            itemBuilder: (context, index) {
-                              return InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    provider.selectedCourse = index;
-                                  });
-                                },
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  padding: const EdgeInsets.all(5),
-                                  margin:
-                                      const EdgeInsets.symmetric(vertical: 5),
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                          color: Colors.grey, width: 1),
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: provider.selectedCourse == index
-                                          ? Colors.blue
-                                          : Colors.white),
-                                  child: Text(provider.courseList[index]),
-                                ),
-                              );
-                            }),
-                      ),
-                      const SizedBox(height: 20),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 const SizedBox(width: 20),
               ],
