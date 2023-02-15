@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:karshenasi_project/schedule_screen.dart';
 import 'package:karshenasi_project/table_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -111,6 +112,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void check() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const TableScreen()));
+        context, MaterialPageRoute(builder: (context) => const ScheduleScreen()));
   }
 }

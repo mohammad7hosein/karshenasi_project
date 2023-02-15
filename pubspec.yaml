@@ -15,6 +15,7 @@ dependencies:
   cupertino_icons:
   flutter_svg:
   provider:
+  dio:
 
 
 dev_dependencies:
