@@ -11,10 +11,6 @@ const darkGray = Color(0xFF404040);
 const gray = Color(0xFF777777);
 const lightGray = Color(0xFFF2F2F2);
 
-const searchOutlineInputBorder = OutlineInputBorder(
-  borderSide: BorderSide(color: Colors.transparent),
-);
-
 final myOutlineInputBorder = OutlineInputBorder(
   borderRadius: BorderRadius.circular(20),
   // borderSide: const BorderSide(color: primary),
@@ -46,28 +42,36 @@ class MyTheme {
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.all(20),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
         ),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.all(20),
-        foregroundColor: Colors.red,
-        side: const BorderSide(color: Colors.red),
+        foregroundColor: Colors.blue,
+        side: const BorderSide(color: Colors.blue),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
         ),
       ),
     ),
-    // shadowColor: Colors.black12,
-    // dividerColor: Colors.grey[300],
-    // disabledColor: Colors.black26,
-    // focusColor: dark,
-    // unselectedWidgetColor: lighter,
-    // secondaryHeaderColor: Colors.white,
-    // scaffoldBackgroundColor: Colors.white,
-    // backgroundColor: light,
-    // iconTheme: const IconThemeData(color: Colors.black, opacity: 0.8),
+  );
+}
+
+buildSnackBar(ThemeData theme, String text, Color? color) {
+  return SnackBar(
+    content: Text(
+      text,
+      style: theme.textTheme.bodySmall?.copyWith(color: Colors.white),
+      textAlign: TextAlign.center,
+    ),
+    padding: const EdgeInsets.all(20),
+    margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+    elevation: 20,
+    duration: const Duration(milliseconds: 1200),
+    behavior: SnackBarBehavior.floating,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+    backgroundColor: color ?? Colors.blue.shade500,
   );
 }

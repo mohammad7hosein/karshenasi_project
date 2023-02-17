@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:karshenasi_project/table_provider.dart';
+import '../provider/table_provider.dart';
 
 class TableScreen extends StatefulWidget {
+  static String route = "/table";
+
   const TableScreen({Key? key}) : super(key: key);
 
   @override

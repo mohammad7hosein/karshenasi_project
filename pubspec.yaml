@@ -16,7 +16,7 @@ dependencies:
   flutter_svg:
   provider:
   dio:
-
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:
