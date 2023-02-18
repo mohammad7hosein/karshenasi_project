@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:karshenasi_project/provider/login_provider.dart';
 import 'package:karshenasi_project/my_theme.dart';
+import 'package:karshenasi_project/screen/bottom_nav_bar.dart';
 import 'package:karshenasi_project/screen/schedule_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -118,11 +119,10 @@ class _LoginScreenState extends State<LoginScreen> {
       _formKey.currentState!.save();
       bool isValid = await provider.login(email, password);
       if (isValid) {
-        Navigator.pushReplacementNamed(context, ScheduleScreen.route,
-            arguments: {
-              'token': provider.token,
-              'user_id': provider.userId,
-            });
+        Navigator.pushReplacementNamed(context, BottomNavBar.route, arguments: {
+          'token': provider.token,
+          'user_id': provider.userId,
+        });
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
             buildSnackBar(theme, "اطلاعات وارد شده نادرست است", Colors.red));

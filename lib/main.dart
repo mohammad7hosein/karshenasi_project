@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:karshenasi_project/my_theme.dart';
+import 'package:karshenasi_project/screen/bottom_nav_bar.dart';
 import 'package:karshenasi_project/screen/login_screen.dart';
 import 'package:karshenasi_project/screen/schedule_screen.dart';
 import 'package:karshenasi_project/screen/table_screen.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: MyTheme.lightTheme,
       routes: {
+        BottomNavBar.route: (context) => BottomNavBar(selectedIndex: 0),
         LoginScreen.route: (context) => const LoginScreen(),
         ScheduleScreen.route: (context) => const ScheduleScreen(),
         TableScreen.route: (context) => const TableScreen(),

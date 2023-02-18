@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:karshenasi_project/my_theme.dart';
 import 'package:karshenasi_project/provider/schedule_provider.dart';
+import 'package:karshenasi_project/screen/table_screen.dart';
 import '../model/dars.dart';
 
 class ScheduleScreen extends StatefulWidget {
