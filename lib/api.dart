@@ -16,13 +16,14 @@ class Api {
     );
   }
 
-  dynamic storeCourse(int userId, int courseId, String day1, String time1,
+  dynamic storeCourse(int userId, int courseId, String darsName, String day1, String time1,
       String? day2, String? time2, String? day2_type, String token) async {
     return await _dio.post(
       "$baseUrl/course/",
       queryParameters: {
         'user_id': userId,
         'dars_id': courseId,
+        'dars_name': darsName,
         'day1': day1,
         'day2': day2,
         'time1': time1,

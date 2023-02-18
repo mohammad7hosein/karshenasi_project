@@ -35,12 +35,12 @@ class ScheduleProvider {
   storeCourse(
     String token,
     int userId,
-    int courseId,
   ) async {
     try {
       final response = await _api.storeCourse(
         userId,
-        courseId,
+        selectedDars!.id!,
+        selectedDars!.name!,
         selectedDay1!,
         selectedClock1!,
         selectedDay2,

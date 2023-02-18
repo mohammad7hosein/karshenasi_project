@@ -15,7 +15,7 @@ class Course {
     id = json['id'];
     userId = json['user_id'];
     darsId = json['dars_id'];
-    name = json['name'];
+    name = json['dars_name'];
     day1 = json['day1'];
     time1 = json['time1'];
     day2Type = json['day2_type'];
@@ -38,7 +38,7 @@ class Course {
     map['id'] = id;
     map['user_id'] = userId;
     map['dars_id'] = darsId;
-    map['name'] = name;
+    map['dars_name'] = name;
     map['day1'] = day1;
     map['time1'] = time1;
     map['day2_type'] = day2Type;

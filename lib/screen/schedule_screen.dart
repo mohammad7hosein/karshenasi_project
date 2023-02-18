@@ -374,7 +374,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       if (checkTime1 || checkTime2) {
         showMyDialog(context, theme);
       } else {
-        provider.storeCourse(token, userId, provider.selectedDars!.id!);
+        provider.storeCourse(token, userId);
         ScaffoldMessenger.of(context).showSnackBar(
             buildSnackBar(theme, "درس با موفقیت ثبت شد", Colors.green));
       }
@@ -411,8 +411,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                             padding: const EdgeInsets.all(10),
                           ),
                           onPressed: () {
-                            provider.storeCourse(
-                                token, userId, provider.selectedDars!.id!);
+                            provider.storeCourse(token, userId);
                             ScaffoldMessenger.of(context).showSnackBar(
                                 buildSnackBar(theme, "درس با موفقیت ثبت شد",
                                     Colors.green));
