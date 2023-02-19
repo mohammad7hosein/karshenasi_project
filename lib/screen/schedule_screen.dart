@@ -365,6 +365,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
           buildSnackBar(theme, "لطفا همه موارد را انتخاب کنید", Colors.red));
     } else {
+      checkTime1 = false;
+      checkTime2 = false;
       checkTime1 = await provider.checkCourseTime(provider.selectedDay1!,
           provider.selectedClock1!, provider.courseType, token);
       if (provider.darsType == 3) {

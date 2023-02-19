@@ -22,7 +22,7 @@ class _TableScreenState extends State<TableScreen> {
     token = arguments['token'];
     userId = arguments['user_id'];
     await provider.getAllCourse(userId, token);
-    // setState(() {});
+    setState(() {});
   }
 
   @override

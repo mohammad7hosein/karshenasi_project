@@ -86,6 +86,7 @@ class ScheduleProvider {
     try {
       final response = await _api.checkCourseTime(day, time, type, token);
       if (response.statusCode == 200) {
+        log("checkCourseTimeResponse: $response");
         if (response.data['status'] == 'false') {
           return false;
         } else {
