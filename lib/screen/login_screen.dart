@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:karshenasi_project/provider/login_provider.dart';
 import 'package:karshenasi_project/my_theme.dart';
+import 'package:karshenasi_project/provider/login_provider.dart';
 import 'package:karshenasi_project/screen/bottom_nav_bar.dart';
-import 'package:karshenasi_project/screen/schedule_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static String route = "/login";
@@ -17,7 +16,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final LoginProvider provider = LoginProvider();
   final _formKey = GlobalKey<FormState>();
-  late String email;
+  late String username;
   late String password;
 
   @override
@@ -64,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     width: double.infinity,
                     child: TextFormField(
-                      onSaved: (newValue) => email = newValue!,
+                      onSaved: (newValue) => username = newValue!,
                       onChanged: (value) {},
                       style: theme.textTheme.bodySmall,
                       keyboardType: TextInputType.emailAddress,
@@ -117,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> check(ThemeData theme) async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      bool isValid = await provider.login(email, password);
+      bool isValid = await provider.login(username, password);
       if (isValid) {
         Navigator.pushReplacementNamed(context, BottomNavBar.route, arguments: {
           'token': provider.token,

@@ -12,7 +12,7 @@ const gray = Color(0xFF777777);
 const lightGray = Color(0xFFF2F2F2);
 
 final myOutlineInputBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(20),
+  borderRadius: BorderRadius.circular(10),
   // borderSide: const BorderSide(color: primary),
 );
 

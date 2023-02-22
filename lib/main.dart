@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:karshenasi_project/my_theme.dart';
+import 'package:karshenasi_project/screen/add_course_screen.dart';
+import 'package:karshenasi_project/screen/add_teacher_screen.dart';
+import 'package:karshenasi_project/screen/admin_screen.dart';
 import 'package:karshenasi_project/screen/bottom_nav_bar.dart';
 import 'package:karshenasi_project/screen/login_screen.dart';
 import 'package:karshenasi_project/screen/schedule_screen.dart';
@@ -25,8 +28,11 @@ class MyApp extends StatelessWidget {
         LoginScreen.route: (context) => const LoginScreen(),
         ScheduleScreen.route: (context) => const ScheduleScreen(),
         TableScreen.route: (context) => const TableScreen(),
+        AdminScreen.route: (context) => const AdminScreen(),
+        AddTeacherScreen.route: (context) => const AddTeacherScreen(),
+        AddCourseScreen.route: (context) => const AddCourseScreen(),
       },
-      home: const LoginScreen(),
+      home: const AdminScreen(),
     );
   }
 }
