@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:karshenasi_project/api.dart';
 import 'package:karshenasi_project/model/dars.dart';
+import 'dart:convert' as convert;
 
 class ScheduleProvider {
   final Api _api = Api();
@@ -10,10 +11,12 @@ class ScheduleProvider {
   String? selectedDay2;
   String? selectedClock1;
   String? selectedClock2;
-  bool isEven = false;
+  String? timeType;
   int darsType = 3;
+  bool warning = false;
+  bool error = false;
 
-  String get courseType => isEven ? "z" : "f";
+  int get courseType => timeType == "x" ? 5 : darsType;
 
   List<Dars> darsList = [];
 
@@ -32,25 +35,32 @@ class ScheduleProvider {
     "15:30_17:30",
   ];
 
-  storeCourse(
+  Future<bool> storeCourse(
     String token,
     int userId,
   ) async {
     try {
       final response = await _api.storeCourse(
-        userId,
         selectedDars!.id!,
         selectedDars!.name!,
         selectedDay1!,
         selectedClock1!,
         selectedDay2,
         selectedClock2,
+        timeType,
         courseType,
         token,
       );
-      log("storeCourseResponse: $response");
+      var jsonResponse =
+          convert.jsonDecode(response.body) as Map<String, dynamic>;
+      log("storeCourseResponse: $jsonResponse");
+      if (response.statusCode == 201) {
+        return true;
+      }
+      return false;
     } catch (e) {
-      log("storeCourseError: ${e.toString()}");
+      log("storeCourseError: $e");
+      return false;
     }
   }
 
@@ -58,12 +68,12 @@ class ScheduleProvider {
     try {
       darsList.clear();
       final response = await _api.getAllDars(userId, token);
+      log("getAllDarsResponse: $response");
       if (response.statusCode == 200) {
         response.data!.forEach((element) {
           darsList.add(Dars.fromJson(element));
         });
       }
-      log("getAllDarsResponse: $response");
     } catch (e) {
       log("getAllDarsError: ${e.toString()}");
     }
@@ -72,32 +82,34 @@ class ScheduleProvider {
   checkDarsType(String token, int darsId) async {
     try {
       final response = await _api.checkDarsType(darsId, token);
+      log("checkDarsTypeResponse: $response");
       if (response.statusCode == 200) {
         darsType = Dars.fromJson(response.data).type!;
       }
-      log("checkDarsTypeResponse: $response");
     } catch (e) {
       log("checkDarsTypeError: ${e.toString()}");
     }
   }
 
-  Future<bool> checkCourseTime(
-      String day, String time, String type, String token) async {
+  checkCourseTime(String token) async {
     try {
-      final response = await _api.checkCourseTime(day, time, type, token);
+      final response = await _api.checkCourseTime(
+          selectedDay1!,
+          selectedClock1!,
+          selectedDay2,
+          selectedClock2,
+          timeType,
+          courseType,
+          token);
+      var jsonResponse =
+          convert.jsonDecode(response.body) as Map<String, dynamic>;
+      log("checkCourseTimeResponse: $jsonResponse");
       if (response.statusCode == 200) {
-        log("checkCourseTimeResponse: $response");
-        if (response.data['status'] == 'false') {
-          return false;
-        } else {
-          return true;
-        }
+        warning = jsonResponse['warning'];
+        error = jsonResponse['error'];
       }
-      log("checkCourseTimeResponse: $response");
-      return false;
     } catch (e) {
       log("checkCourseTimeError: ${e.toString()}");
-      return false;
     }
   }
 }

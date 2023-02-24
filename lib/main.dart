@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         AddTeacherScreen.route: (context) => const AddTeacherScreen(),
         AddCourseScreen.route: (context) => const AddCourseScreen(),
       },
-      home: const AdminScreen(),
+      home: const LoginScreen(),
     );
   }
 }

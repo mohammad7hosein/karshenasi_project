@@ -81,13 +81,13 @@ class TableProvider {
     try {
       courseList.clear();
       final response = await _api.getAllCourse(userId, token);
+      log("getAllCourseResponse: $response");
       if (response.statusCode == 200) {
         response.data!.forEach((element) {
           courseList.add(Course.fromJson(element));
         });
         initTable();
       }
-      log("getAllCourseResponse: $response");
     } catch (e) {
       log("getAllCourseError: ${e.toString()}");
     }

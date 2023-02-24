@@ -1,18 +1,23 @@
 import 'dart:developer';
 import 'package:karshenasi_project/api.dart';
+import 'dart:convert' as convert;
 
 class LoginProvider {
   final Api _api = Api();
   late final int userId;
   late final String token;
+  late final bool isAdmin;
 
   Future<bool> login(String email, String password) async {
     try {
       final response = await _api.login(email, password);
-      log("loginResponse: $response");
+      var jsonResponse =
+          convert.jsonDecode(response.body) as Map<String, dynamic>;
+      log("loginResponse: $jsonResponse");
       if (response.statusCode == 200) {
-        userId = response.data['user_id'];
-        token = response.data['token'];
+        userId = jsonResponse['user_id'];
+        token = jsonResponse['token'];
+        isAdmin = jsonResponse['admin'];
         return true;
       }
       return false;
