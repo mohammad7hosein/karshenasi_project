@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:karshenasi_project/screen/add_course_screen.dart';
 import 'package:karshenasi_project/screen/add_teacher_screen.dart';
+import 'package:karshenasi_project/screen/login_screen.dart';
 
 class AdminScreen extends StatefulWidget {
   static String route = "/admin";
@@ -62,6 +63,16 @@ class _AdminScreenState extends State<AdminScreen> {
                 child: ElevatedButton(
                   onPressed: () {},
                   child: const Text("دریافت دروس"),
+                ),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: 200,
+                child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, LoginScreen.route);
+                  },
+                  child: const Text("خروج"),
                 ),
               ),
               const Spacer(),

@@ -433,11 +433,17 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.all(10),
                           ),
-                          onPressed: () {
-                            provider.storeCourse(token, userId);
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                buildSnackBar(theme, "درس با موفقیت ثبت شد",
-                                    Colors.green));
+                          onPressed: () async {
+                            if (await provider.storeCourse(token, userId)) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  buildSnackBar(theme, "درس با موفقیت ثبت شد",
+                                      Colors.green));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  buildSnackBar(theme,
+                                      "متاسفانه خطایی رخ داد...", Colors.red));
+                            }
+                            Navigator.pop(context);
                           },
                           child: const Text("بله")),
                       const SizedBox(width: 20),

@@ -47,14 +47,14 @@ class ScheduleProvider {
         selectedClock1!,
         selectedDay2,
         selectedClock2,
-        timeType,
+        timeType == "x" ? null : timeType,
         courseType,
         token,
       );
       var jsonResponse =
           convert.jsonDecode(response.body) as Map<String, dynamic>;
       log("storeCourseResponse: $jsonResponse");
-      if (response.statusCode == 201) {
+      if (response.statusCode == 201 || response.statusCode == 200) {
         return true;
       }
       return false;
@@ -98,7 +98,7 @@ class ScheduleProvider {
           selectedClock1!,
           selectedDay2,
           selectedClock2,
-          timeType,
+          timeType == "x" ? null : timeType,
           courseType,
           token);
       var jsonResponse =

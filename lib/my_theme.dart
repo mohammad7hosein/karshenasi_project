@@ -49,8 +49,8 @@ class MyTheme {
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.all(20),
-        foregroundColor: Colors.blue,
-        side: const BorderSide(color: Colors.blue),
+        foregroundColor: Colors.red,
+        side: const BorderSide(color: Colors.red),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
