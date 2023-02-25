@@ -74,7 +74,7 @@ class Api {
   }
 
   Future<http.Response> checkCourseTime(String day1, String time1, String? day2,
-      String? time2, String? type, int unit, String token) async {
+      String? time2, String? type, int unit, int darsId, String token) async {
     return await http.post(
       Uri.parse("$baseUrl/darsdup/"),
       body: json.encode({
@@ -84,6 +84,7 @@ class Api {
         'time2': time2,
         'type': type,
         'unit': unit,
+        'dars_id': darsId,
       }),
       headers: {
         'Authorization': 'Bearer $token',

@@ -47,18 +47,20 @@ class _TableScreenState extends State<TableScreen> {
             scrollDirection: Axis.horizontal,
             child: Container(
               alignment: Alignment.center,
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(10),
               child: DataTable(
-                headingTextStyle: textTheme.bodySmall,
+                headingTextStyle:
+                    textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+                dataTextStyle: textTheme.labelLarge,
                 columnSpacing: 20,
                 decoration: BoxDecoration(
-                  color: Colors.blue.shade400,
-                  borderRadius: BorderRadius.circular(20),
+                  color: const Color(0xff2bb4ff),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 border: TableBorder.all(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.black,
-                  width: 1,
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.black45,
+                  width: 0.5,
                 ),
                 horizontalMargin: 10,
                 columns: [
@@ -92,8 +94,15 @@ class _TableScreenState extends State<TableScreen> {
                 rows: [
                   DataRow(
                     cells: [
-                      const DataCell(Center(child: Text("8_10"))),
-                      DataCell(Text(provider.rows[0][0])),
+                      DataCell(Center(
+                          child: Text(
+                        "8_10",
+                        style: textTheme.bodyMedium
+                            ?.copyWith(fontWeight: FontWeight.bold),
+                      ))),
+                      DataCell(Container(
+                          color: Colors.purple,
+                          child: Text(provider.rows[0][0]))),
                       DataCell(Text(provider.rows[0][1])),
                       DataCell(Text(provider.rows[0][2])),
                       DataCell(Text(provider.rows[0][3])),
@@ -102,7 +111,12 @@ class _TableScreenState extends State<TableScreen> {
                   ),
                   DataRow(
                     cells: [
-                      const DataCell(Center(child: Text("10_12"))),
+                      DataCell(Center(
+                          child: Text(
+                        "10_12",
+                        style: textTheme.bodyMedium
+                            ?.copyWith(fontWeight: FontWeight.bold),
+                      ))),
                       DataCell(Text(provider.rows[1][0])),
                       DataCell(Text(provider.rows[1][1])),
                       DataCell(Text(provider.rows[1][2])),
@@ -112,7 +126,12 @@ class _TableScreenState extends State<TableScreen> {
                   ),
                   DataRow(
                     cells: [
-                      const DataCell(Center(child: Text("13:30_15:30"))),
+                      DataCell(Center(
+                          child: Text(
+                        "13:30_15:30",
+                        style: textTheme.bodyMedium
+                            ?.copyWith(fontWeight: FontWeight.bold),
+                      ))),
                       DataCell(Text(provider.rows[2][0])),
                       DataCell(Text(provider.rows[2][1])),
                       DataCell(Text(provider.rows[2][2])),
@@ -122,7 +141,12 @@ class _TableScreenState extends State<TableScreen> {
                   ),
                   DataRow(
                     cells: [
-                      const DataCell(Center(child: Text("15:30_17:30"))),
+                      DataCell(Center(
+                          child: Text(
+                        "15:30_17:30",
+                        style: textTheme.bodyMedium
+                            ?.copyWith(fontWeight: FontWeight.bold),
+                      ))),
                       DataCell(Text(provider.rows[3][0])),
                       DataCell(Text(provider.rows[3][1])),
                       DataCell(Text(provider.rows[3][2])),

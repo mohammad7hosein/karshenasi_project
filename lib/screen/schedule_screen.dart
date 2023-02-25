@@ -326,7 +326,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                             groupValue: provider.timeType,
                             onChanged: (newValue) {
                               setState(() {
-                                provider.timeType = newValue.toString();
+                                provider.timeType = newValue;
                               });
                             }),
                         RadioListTile(
@@ -338,7 +338,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                             groupValue: provider.timeType,
                             onChanged: (newValue) {
                               setState(() {
-                                provider.timeType = newValue.toString();
+                                provider.timeType = newValue;
                               });
                             }),
                         if (provider.darsType == 3)
@@ -351,7 +351,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                               groupValue: provider.timeType,
                               onChanged: (newValue) {
                                 setState(() {
-                                  provider.timeType = newValue.toString();
+                                  provider.timeType = newValue;
                                 });
                               }),
                       ],

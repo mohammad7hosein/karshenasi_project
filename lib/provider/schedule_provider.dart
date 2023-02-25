@@ -11,7 +11,7 @@ class ScheduleProvider {
   String? selectedDay2;
   String? selectedClock1;
   String? selectedClock2;
-  String? timeType;
+  String? timeType = "z";
   int darsType = 3;
   bool warning = false;
   bool error = false;
@@ -94,13 +94,15 @@ class ScheduleProvider {
   checkCourseTime(String token) async {
     try {
       final response = await _api.checkCourseTime(
-          selectedDay1!,
-          selectedClock1!,
-          selectedDay2,
-          selectedClock2,
-          timeType == "x" ? null : timeType,
-          courseType,
-          token);
+        selectedDay1!,
+        selectedClock1!,
+        selectedDay2,
+        selectedClock2,
+        timeType == "x" ? null : timeType,
+        courseType,
+        selectedDars!.id!,
+        token,
+      );
       var jsonResponse =
           convert.jsonDecode(response.body) as Map<String, dynamic>;
       log("checkCourseTimeResponse: $jsonResponse");
