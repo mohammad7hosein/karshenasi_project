@@ -3,6 +3,7 @@ class Dars {
     this.id,
     this.userId,
     this.name,
+    this.year,
     this.type,
   });
 
@@ -10,12 +11,14 @@ class Dars {
     id = json['id'];
     userId = json['user_id'];
     name = json['name'];
+    year = json['year'];
     type = json['type'];
   }
 
   int? id;
   int? userId;
   String? name;
+  String? year;
   int? type;
 
   Map<String, dynamic> toJson() {
@@ -23,6 +26,7 @@ class Dars {
     map['id'] = id;
     map['user_id'] = userId;
     map['name'] = name;
+    map['year'] = year;
     map['type'] = type;
     return map;
   }

@@ -9,6 +9,8 @@ class Course {
     this.day2,
     this.time2,
     this.name,
+    this.year,
+    this.teacherName,
   });
 
   Course.fromJson(dynamic json) {
@@ -21,6 +23,8 @@ class Course {
     day2Type = json['day2_type'];
     day2 = json['day2'];
     time2 = json['time2'];
+    year = json['year'];
+    teacherName = json['nameTeacher'];
   }
 
   int? id;
@@ -32,6 +36,8 @@ class Course {
   String? day2Type;
   String? day2;
   String? time2;
+  String? year;
+  String? teacherName;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -44,6 +50,8 @@ class Course {
     map['day2_type'] = day2Type;
     map['day2'] = day2;
     map['time2'] = time2;
+    map['year'] = year;
+    map['nameTeacher'] = teacherName;
     return map;
   }
 }

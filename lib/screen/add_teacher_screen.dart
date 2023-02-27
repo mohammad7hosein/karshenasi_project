@@ -45,7 +45,7 @@ class _AddTeacherScreenState extends State<AddTeacherScreen> {
                     Center(
                       child: SvgPicture.asset(
                         "assets/image/professor.svg",
-                        height: 300,
+                        height: 250,
                       ),
                     ),
                     const SizedBox(height: 30),
@@ -100,7 +100,7 @@ class _AddTeacherScreenState extends State<AddTeacherScreen> {
                         maxLines: 1,
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 60),
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(

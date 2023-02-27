@@ -18,15 +18,17 @@ class Api {
   }
 
   Future<http.Response> storeCourse(
-      int darsId,
-      String darsName,
-      String day1,
-      String time1,
-      String? day2,
-      String? time2,
-      String? day2_type,
-      int unit,
-      String token) async {
+    int darsId,
+    String darsName,
+    String day1,
+    String time1,
+    String? day2,
+    String? time2,
+    String? day2_type,
+    int unit,
+    String year,
+    String token,
+  ) async {
     return await http.post(
       Uri.parse("$baseUrl/course/"),
       body: json.encode({
@@ -38,6 +40,7 @@ class Api {
         'time2': time2,
         'day2_type': day2_type,
         'type': unit,
+        'year': year,
       }),
       headers: {
         'Authorization': 'Bearer $token',
@@ -55,9 +58,9 @@ class Api {
     );
   }
 
-  dynamic getAllCourse(int userId, String token) async {
+  dynamic getAllCourse(String token) async {
     return await _dio.get(
-      "$baseUrl/course/$userId/",
+      "$baseUrl/courses/",
       options: Options(
         headers: {'Authorization': 'Bearer $token'},
       ),
@@ -116,13 +119,14 @@ class Api {
   }
 
   Future<http.Response> addDars(
-      String name, int unit, int userId, String token) async {
+      String name, int unit, int userId, String year, String token) async {
     return await http.post(
       Uri.parse("$baseUrl/adddars"),
       body: json.encode({
         'name': name,
         'type': unit,
         'user_id': userId,
+        'year': year,
       }),
       headers: {
         'Authorization': 'Bearer $token',
@@ -134,6 +138,15 @@ class Api {
   dynamic getAllUser(String token) async {
     return await _dio.get(
       "$baseUrl/users/",
+      options: Options(
+        headers: {'Authorization': 'Bearer $token'},
+      ),
+    );
+  }
+
+  dynamic createExelFile(String token) async {
+    return await _dio.get(
+      "$baseUrl/courses-file/",
       options: Options(
         headers: {'Authorization': 'Bearer $token'},
       ),

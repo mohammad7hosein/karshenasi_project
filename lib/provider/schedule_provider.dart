@@ -18,6 +18,14 @@ class ScheduleProvider {
 
   int get courseType => timeType == "x" ? 5 : darsType;
 
+  String? get weakType {
+    if (darsType == 2 || darsType == 4) {
+      return null;
+    } else {
+      return timeType;
+    }
+  }
+
   List<Dars> darsList = [];
 
   List<String> dayList = [
@@ -47,8 +55,9 @@ class ScheduleProvider {
         selectedClock1!,
         selectedDay2,
         selectedClock2,
-        timeType == "x" ? null : timeType,
+        weakType == "x" ? null : weakType,
         courseType,
+        selectedDars!.year!,
         token,
       );
       var jsonResponse =
@@ -98,7 +107,7 @@ class ScheduleProvider {
         selectedClock1!,
         selectedDay2,
         selectedClock2,
-        timeType == "x" ? null : timeType,
+        weakType == "x" ? null : weakType,
         courseType,
         selectedDars!.id!,
         token,

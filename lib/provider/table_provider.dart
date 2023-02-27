@@ -7,83 +7,97 @@ class TableProvider {
 
   List<Course> courseList = [];
 
-  var rows = [
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-  ];
+  List<Course> row00 = [];
+  List<Course> row10 = [];
+  List<Course> row20 = [];
+  List<Course> row30 = [];
+  List<Course> row01 = [];
+  List<Course> row11 = [];
+  List<Course> row21 = [];
+  List<Course> row31 = [];
+  List<Course> row02 = [];
+  List<Course> row12 = [];
+  List<Course> row22 = [];
+  List<Course> row32 = [];
+  List<Course> row03 = [];
+  List<Course> row13 = [];
+  List<Course> row23 = [];
+  List<Course> row33 = [];
+  List<Course> row04 = [];
+  List<Course> row14 = [];
+  List<Course> row24 = [];
+  List<Course> row34 = [];
 
-  set(String day, String time, String name) {
+  set(String day, String time, Course course) {
     if (day == "شنبه") {
       if (time == "8_10") {
-        rows[0][0] = name;
+        row00.add(course);
       } else if (time == "10_12") {
-        rows[1][0] = name;
+        row10.add(course);
       } else if (time == "13:30_15:30") {
-        rows[2][0] = name;
+        row20.add(course);
       } else if (time == "15:30_17:30") {
-        rows[3][0] = name;
+        row30.add(course);
       }
     } else if (day == "یکشنبه") {
       if (time == "8_10") {
-        rows[0][1] = name;
+        row01.add(course);
       } else if (time == "10_12") {
-        rows[1][1] = name;
+        row11.add(course);
       } else if (time == "13:30_15:30") {
-        rows[2][1] = name;
+        row21.add(course);
       } else if (time == "15:30_17:30") {
-        rows[3][1] = name;
+        row31.add(course);
       }
     } else if (day == "دوشنبه") {
       if (time == "8_10") {
-        rows[0][2] = name;
+        row02.add(course);
       } else if (time == "10_12") {
-        rows[1][2] = name;
+        row12.add(course);
       } else if (time == "13:30_15:30") {
-        rows[2][2] = name;
+        row22.add(course);
       } else if (time == "15:30_17:30") {
-        rows[3][2] = name;
+        row32.add(course);
       }
     } else if (day == "سه شنبه") {
       if (time == "8_10") {
-        rows[0][3] = name;
+        row03.add(course);
       } else if (time == "10_12") {
-        rows[1][3] = name;
+        row13.add(course);
       } else if (time == "13:30_15:30") {
-        rows[2][3] = name;
+        row23.add(course);
       } else if (time == "15:30_17:30") {
-        rows[3][3] = name;
+        row33.add(course);
       }
     } else if (day == "چهارشنبه") {
       if (time == "8_10") {
-        rows[0][4] = name;
+        row04.add(course);
       } else if (time == "10_12") {
-        rows[1][4] = name;
+        row14.add(course);
       } else if (time == "13:30_15:30") {
-        rows[2][4] = name;
+        row24.add(course);
       } else if (time == "15:30_17:30") {
-        rows[3][4] = name;
+        row34.add(course);
       }
     }
   }
 
   initTable() {
     courseList.forEach((course) {
-      set(course.day1!, course.time1!, course.name!);
+      set(course.day1!, course.time1!, course);
       if (course.day2 != null) {
-        set(course.day2!, course.time2!, course.name!);
+        set(course.day2!, course.time2!, course);
       }
     });
   }
 
-  dynamic getAllCourse(int userId, String token) async {
+  dynamic getAllCourse(String token) async {
     try {
       courseList.clear();
-      final response = await _api.getAllCourse(userId, token);
+      final response = await _api.getAllCourse(token);
       log("getAllCourseResponse: $response");
       if (response.statusCode == 200) {
-        response.data!.forEach((element) {
+        response.data['courses'].forEach((element) {
           courseList.add(Course.fromJson(element));
         });
         initTable();

@@ -6,9 +6,8 @@ import 'dart:convert' as convert;
 class AdminProvider {
   final Api _api = Api();
 
-  int? selectedCourseType;
+  int? selectedCourseType = 3;
   User? selectedTeacher;
-  List<int> courseTypes = [1, 2, 3, 4];
   List<User> teacherNames = [];
 
   Future<bool> addUser(
@@ -28,10 +27,10 @@ class AdminProvider {
     }
   }
 
-  Future<bool> addDars(String name, String token) async {
+  Future<bool> addDars(String name, String year, String token) async {
     try {
       final response = await _api.addDars(
-          name, selectedCourseType!, selectedTeacher!.id!, token);
+          name, selectedCourseType!, selectedTeacher!.id!, year, token);
       var jsonResponse =
           convert.jsonDecode(response.body) as Map<String, dynamic>;
       log("addDarsResponse: $jsonResponse");
@@ -58,6 +57,20 @@ class AdminProvider {
       }
     } catch (e) {
       log("getAllUserError: ${e.toString()}");
+    }
+  }
+
+  Future<bool> createExelFile(String token) async {
+    try {
+      final response = await _api.createExelFile(token);
+      log("getExelFileResponse: $response");
+      if (response.statusCode == 200) {
+        return true;
+      }
+      return false;
+    } catch (e) {
+      log("getExelFileError: $e");
+      return false;
     }
   }
 }
